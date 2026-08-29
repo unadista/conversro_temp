@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperaturas</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="card-container">
+        <!-- Encabezado de la Tarjeta -->
+        <header class="card-header">
+            <div class="brand-icon">
+                <i class="fa-solid fa-temperature-half"></i>
+            </div>
+            <h1>Conversor de Temperaturas</h1>
+            <p>Convierte de forma precisa entre Celsius, Fahrenheit y Kelvin.</p>
+        </header>
+
+        <!-- Formulario e Entradas -->
+        <form class="converter-form" id="converterForm" onsubmit="event.preventDefault();">
+            
+            <!-- Campo de Valor de Entrada -->
+            <div class="input-group">
+                <label for="temperatureInput">Temperatura</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-hashtag input-icon"></i>
+                    <input type="number" id="temperatureInput" placeholder="Ej. 25" step="any">
+                </div>
+                <span class="error-message" id="errorMessage">Por favor, ingresa un número válido.</span>
+            </div>
+
+            <!-- Selección de Unidades -->
+            <div class="units-container">
+                <div class="select-group">
+                    <label for="fromUnit">De</label>
+                    <select id="fromUnit">
+                        <option value="C" selected>Celsius (°C)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </select>
+                </div>
+
+                <!-- Botón Intercambiar -->
+                <button type="button" class="btn-swap" id="swapBtn" title="Intercambiar unidades" aria-label="Intercambiar unidades">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+
+                <div class="select-group">
+                    <label for="toUnit">A</label>
+                    <select id="toUnit">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="F" selected>Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="action-buttons">
+                <button type="button" class="btn-clear" id="clearBtn">
+                    <i class="fa-solid fa-rotate-left"></i> Limpiar
+                </button>
+            </div>
+        </form>
+
+        <!-- Sección del Resultado -->
+        <section class="result-section" id="resultSection">
+            <div class="result-card" id="resultCard">
+                <span class="result-label">Resultado:</span>
+                <div class="result-display">
+                    <span id="resultValue">--</span>
+                    <span id="resultUnit">°F</span>
+                </div>
+                
+                <!-- Indicador Visual Frío / Neutro / Caliente -->
+                <div class="temp-indicator" id="tempIndicator">
+                    <i id="indicatorIcon" class="fa-solid fa-minus"></i>
+                    <span id="indicatorText">Ingresa un valor para calcular</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
